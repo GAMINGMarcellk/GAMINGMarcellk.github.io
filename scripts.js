@@ -5,49 +5,49 @@
  * Search function
  */
 
-const searchInput = document.querySelector("#searchbar > input")
-const searchButton = document.querySelector("#searchbar > button")
-
-const lookup = {"/":"/","deepl":"https://deepl.com/","reddit":"https://reddit.com/","maps":"https://maps.google.com/"}
-const engine = "brave"
-const engineUrls = {
-  deepl: "https://www.deepl.com/translator#-/-/",
-  duckduckgo: "https://duckduckgo.com/?q=",
-  ecosia: "https://www.ecosia.org/search?q=",
-  brave: "https://search.brave.com/search?q=",
-  startpage: "https://www.startpage.com/search?q=",
-  youtube: "https://www.youtube.com/results?q=",
-}
-
-const isWebUrl = value => {
-  try {
-    const url = new URL(value)
-    return url.protocol === "http:" || url.protocol === "https:"
-  } catch {
-    return false
-  }
-}
-
-const getTargetUrl = value => {
-  if (isWebUrl(value)) return value
-  if (lookup[value]) return lookup[value]
-  return engineUrls[engine] + value
-}
-
-const search = () => {
-  const value = searchInput.value
-  const targetUrl = getTargetUrl(value)
-  window.open(targetUrl, "_self")
-}
-
-searchInput.onkeyup = event => event.key === "Enter" && search()
-searchButton.onclick = search
-
-/**
+ const searchInput = document.querySelector("#searchbar > input")
+ const searchButton = document.querySelector("#searchbar > button")
+ 
+ const lookup = {"/":"/","deepl":"https://deepl.com/","reddit":"https://reddit.com/","maps":"https://maps.google.com/"}
+ const engine = "brave"
+ const engineUrls = {
+   deepl: "https://www.deepl.com/translator#-/-/",
+   duckduckgo: "https://duckduckgo.com/?q=",
+   ecosia: "https://www.ecosia.org/search?q=",
+   brave: "https://search.brave.com/search?q=",
+   startpage: "https://www.startpage.com/search?q=",
+   youtube: "https://www.youtube.com/results?q=",
+ }
+ 
+ const isWebUrl = value => {
+   try {
+     const url = new URL(value)
+     return url.protocol === "http:" || url.protocol === "https:"
+   } catch {
+     return false
+   }
+ }
+ 
+ const getTargetUrl = value => {
+   if (isWebUrl(value)) return value
+   if (lookup[value]) return lookup[value]
+   return engineUrls[engine] + value
+ }
+ 
+ const search = () => {
+   const value = searchInput.value
+   const targetUrl = getTargetUrl(value)
+   window.open(targetUrl, "_self")
+ }
+ 
+ searchInput.onkeyup = event => event.key === "Enter" && search()
+ searchButton.onclick = search
+ 
+ /**
  * inject bookmarks into html
  */
 
-const bookmarks = [{"id":"PCsG7KSTklnJn1Kn","label":"Minden napi dolgok","bookmarks":[{"id":"nOvZgDHM98qoyAjn","label":"Email","url":"https://box.astolfo.email/mail/"},{"id":"6RwXU7STLNNCo61O","label":"Discord","url":"https://discord.com/login"},{"id":"2ycsJeOnKK9i6XEU","label":"Youtube","url":"https://youtube.com"}]},{"id":"Pg0G5b89OKCRXlXP","label":"fontos dolgok","bookmarks":[{"id":"8wZgABCr4zQFSmCC","label":"Weboldalak","url":"https://app.infinityfree.net"},{"id":"9Kg7goulxWorVCCM","label":"Github","url":"https://github.com/"},{"id":"vWwauszhR0zCj8xi","label":"Mega","url":"https://mega.nz"},{"id":"93pAUAGpWeGdrepR","label":"","url":""}]},{"id":"jjSt1sgZsfKXVR8G","label":"Böngésző játékok","bookmarks":[{"id":"y6eJu00Utnn4id4P","label":"krunker","url":"https://krunker.io"},{"id":"cZXEazEaNtxr0ddB","label":"Venge","url":"https://venge.io"},{"id":"ExTScgRPhhxVm569","label":"POLYBLICKY","url":"https://www.gaming-style.com/POLYBLICY/index.php?page=game"}]},{"id":"zq4UhlpM2LXLVkrs","label":"Képes dolgok","bookmarks":[{"id":"j489Vlpn9sO8s4IL","label":"icons","url":"https://feathericons.com/"},{"id":"KFbkD6fx0hnvw3wi","label":"gif","url":"https://giphy.com/"},{"id":"RRAGKLdzJ0KTuZ51","label":"Pinterest","url":"https://www.pinterest.com/"},{"id":"0iTJgwA9OIGppHmn","label":"","url":"about:"}]}]
+const bookmarks = [{"id":"Rw2tapufInPnoHl8","label":"Minden napi dolgok","bookmarks":[{"id":"NTKY01pkZtdqrfWl","label":"Email","url":"https://box.astolfo.email/mail/"},{"id":"TKoPsUElKSuFm7SD","label":"discord","url":"https://discord.com/login"},{"id":"2i1r6ptaNKQGTuXg","label":"Youtube","url":"https://youtube.com/"}]},{"id":"Ho88QuzNxj1fteAQ","label":"fontos dolgok","bookmarks":[{"id":"kDkQMpDifm5mIuBc","label":"Weboldalak","url":"https://app.infinityfree.net/"},{"id":"07Z18TgomR0N8ome","label":"Github","url":"https://github.com/"},{"id":"RXdUlwyoFB52mx7S","label":"Mega","url":"https://mega.nz/"}]},{"id":"zjWRvwkGVVIaFe5i","label":"Böngészős játékok","bookmarks":[{"id":"vnbu51xy122sd5Sc","label":"krunker","url":"https://krunker.io/"},{"id":"npvyxtB95EKUqSs7","label":"Venge","url":"https://venge.io/"},{"id":"Q6UNqq0CIxnY0ZPR","label":"POLYBLICY","url":"https://www.gaming-style.com/POLYBLICY/index.php?page=game"},{"id":"TAB6ZCcPhqEOMLSG","label":"CS 1.6","url":"https://play-cs.com"}]},{"id":"7zosLY3bApVuFK32","label":"Képes dolgok","bookmarks":[{"id":"BYDzH9Dwx9ExI53Z","label":"iconok","url":"https://feathericons.com/"},{"id":"6BLU9z8y2ohNb5nr","label":"gif","url":"https://giphy.com/"},{"id":"y53K0fbaoKyCq1gb","label":"Pinterest","url":"https://www.pinterest.com/"}]}]
 
 const createGroupContainer = () => {
   const container = document.createElement("div")
