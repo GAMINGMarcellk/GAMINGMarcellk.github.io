@@ -14,7 +14,7 @@
    deepl: "https://www.deepl.com/translator#-/-/",
    duckduckgo: "https://duckduckgo.com/?q=",
    ecosia: "https://www.ecosia.org/search?q=",
-   brave: "https://search.brave.com/search?q=",
+   brave: "https://www.qwant.com/?q=",
    startpage: "https://www.startpage.com/search?q=",
    youtube: "https://www.youtube.com/results?q=",
  }
